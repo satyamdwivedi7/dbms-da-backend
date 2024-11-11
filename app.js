@@ -10,6 +10,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/", routes);
 
+app.get("/", (req, res)=>{
+  res.send("Api is running successfully");
+})
+
 app.listen(8000, () => {
   mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log("Connected to the Database successfully");
