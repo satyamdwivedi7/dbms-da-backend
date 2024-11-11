@@ -7,10 +7,10 @@ const {
   deleteDataById,
 } = require("../controller/data.controller");
 
-router.post("/data", createData);
-router.get("/data", getAllData);
-router.get("/data/:id", getDataById);
-router.put("/data/:id", updateDataById);
-router.delete("/data/:id", deleteDataById);
+router.post("/", createData);
+router.get("/", getAllData);
+router.get("/:id", getDataById);
+router.put("/:id", updateDataById);
+router.delete("/:id", deleteDataById);
 
 module.exports = router;

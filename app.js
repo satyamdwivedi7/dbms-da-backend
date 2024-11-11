@@ -1,19 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const router = require("./routes");
+const routes = require("./routes/data.route"); // Correctly require the routes file
 require("dotenv").config();
+
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/", router);
+app.use("/data", routes);
 
 app.get("/", (req, res) => {
   res.send("API is running successfully");
 });
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }) // Add options to avoid deprecation warnings
   .then(() => {
     console.log("Connected to the Database successfully");
   })
