@@ -14,10 +14,7 @@ app.get("/", (req, res) => {
 });
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }) // Add options to avoid deprecation warnings
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to the Database successfully");
   })
