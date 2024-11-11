@@ -1,9 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const router = require("./routes/routes")
+const router = require("./routes");
 require("dotenv").config();
-
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -22,8 +21,8 @@ mongoose
     console.error("Failed to connect to the database:", err);
   });
 
-app.listen(8000, ()=>{
-  console.log("Running on port 8000")
-})
+app.listen(8000, () => {
+  console.log("Running on port 8000");
+});
 
 module.exports = app;
