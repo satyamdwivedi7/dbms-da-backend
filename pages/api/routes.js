@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const dataRoutes = require("./data.route");
+const dataRoutes = require("../../routes/data.route");
 
 router.use(dataRoutes);
 
